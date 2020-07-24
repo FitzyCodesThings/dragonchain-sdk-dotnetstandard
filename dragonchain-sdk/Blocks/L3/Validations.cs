@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Newtonsoft.Json;
 
-namespace dragonchain_sdk.Blocks.L3
+namespace DragonchainSDK.Blocks.L3
 {
     public class Validations
     {

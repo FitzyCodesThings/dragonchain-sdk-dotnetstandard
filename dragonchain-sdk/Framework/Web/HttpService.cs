@@ -4,12 +4,12 @@ using System.Threading.Tasks;
 using System.Net.Http.Headers;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
-using dragonchain_sdk.Credentials;
+using DragonchainSDK.Credentials;
 using System.Net;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Abstractions;
 
-namespace dragonchain_sdk.Framework.Web
+namespace DragonchainSDK.Framework.Web
 {
     internal class HttpService : IHttpService
     {

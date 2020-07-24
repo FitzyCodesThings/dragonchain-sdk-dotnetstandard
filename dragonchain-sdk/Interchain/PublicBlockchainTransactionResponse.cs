@@ -1,4 +1,4 @@
-﻿namespace dragonchain_sdk.Interchain
+﻿namespace DragonchainSDK.Interchain
 {      
     public class PublicBlockchainTransactionResponse
     {

@@ -1,4 +1,4 @@
-﻿namespace dragonchain_sdk.Credentials
+﻿namespace DragonchainSDK.Credentials
 {
     public class DragonchainCredentials
     {

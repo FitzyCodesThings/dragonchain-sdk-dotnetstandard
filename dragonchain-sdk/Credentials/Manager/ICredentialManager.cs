@@ -1,4 +1,4 @@
-﻿namespace dragonchain_sdk.Credentials.Manager
+﻿namespace DragonchainSDK.Credentials.Manager
 {
     public interface ICredentialManager
     {

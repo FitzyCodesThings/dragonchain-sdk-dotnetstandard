@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace dragonchain_sdk.Credentials.Keys
+namespace DragonchainSDK.Credentials.Keys
 {
     public class ListAPIKeyResponse
     {

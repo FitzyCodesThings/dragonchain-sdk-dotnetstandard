@@ -5,26 +5,26 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Abstractions;
-using dragonchain_sdk.Blocks;
-using dragonchain_sdk.Contracts;
-using dragonchain_sdk.Credentials;
-using dragonchain_sdk.Credentials.Keys;
-using dragonchain_sdk.Credentials.Manager;
-using dragonchain_sdk.Framework.Errors;
-using dragonchain_sdk.Framework.Lucene;
-using dragonchain_sdk.Framework.Web;
-using dragonchain_sdk.Interchain;
-using dragonchain_sdk.Interchain.Bitcoin;
-using dragonchain_sdk.Interchain.Ethereum;
-using dragonchain_sdk.Interchain.Networks;
-using dragonchain_sdk.Status;
-using dragonchain_sdk.Transactions;
-using dragonchain_sdk.Transactions.Bulk;
-using dragonchain_sdk.Transactions.L1;
-using dragonchain_sdk.Transactions.Types;
+using DragonchainSDK.Blocks;
+using DragonchainSDK.Contracts;
+using DragonchainSDK.Credentials;
+using DragonchainSDK.Credentials.Keys;
+using DragonchainSDK.Credentials.Manager;
+using DragonchainSDK.Framework.Errors;
+using DragonchainSDK.Framework.Lucene;
+using DragonchainSDK.Framework.Web;
+using DragonchainSDK.Interchain;
+using DragonchainSDK.Interchain.Bitcoin;
+using DragonchainSDK.Interchain.Ethereum;
+using DragonchainSDK.Interchain.Networks;
+using DragonchainSDK.Status;
+using DragonchainSDK.Transactions;
+using DragonchainSDK.Transactions.Bulk;
+using DragonchainSDK.Transactions.L1;
+using DragonchainSDK.Transactions.Types;
 using System.IO;
 
-namespace dragonchain_sdk
+namespace DragonchainSDK
 {
     /// <summary>
     /// HTTP Client that interfaces with the dragonchain api, using credentials stored on your machine.

@@ -3,9 +3,9 @@ using System.Security.Cryptography;
 using System.Text;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Abstractions;
-using dragonchain_sdk.Credentials.Manager;
+using DragonchainSDK.Credentials.Manager;
 
-namespace dragonchain_sdk.Credentials
+namespace DragonchainSDK.Credentials
 {
     /// <summary>
     /// Service to retrieve Dragonchain credentials for use in API requests

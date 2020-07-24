@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.Extensions.Logging;
 
-namespace dragonchain_sdk.tests
+namespace DragonchainSDK.Tests
 {
     internal class TestLogger<T> : ILogger<T>, IDisposable
         {

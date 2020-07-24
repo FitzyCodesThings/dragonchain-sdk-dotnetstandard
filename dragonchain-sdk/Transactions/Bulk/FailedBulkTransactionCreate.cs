@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace dragonchain_sdk.Transactions.Bulk
+namespace DragonchainSDK.Transactions.Bulk
 {
     public class FailedBulkTransactionCreate
     {

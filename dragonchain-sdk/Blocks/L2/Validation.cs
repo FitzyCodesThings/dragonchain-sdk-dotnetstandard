@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace dragonchain_sdk.Blocks.L2
+namespace DragonchainSDK.Blocks.L2
 {
     public class Validation
     {

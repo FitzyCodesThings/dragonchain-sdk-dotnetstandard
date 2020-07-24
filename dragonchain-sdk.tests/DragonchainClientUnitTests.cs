@@ -4,21 +4,21 @@ using System.Collections.Generic;
 using Microsoft.Extensions.Logging;
 using Moq;
 using NUnit.Framework;
-using dragonchain_sdk.Contracts;
-using dragonchain_sdk.Framework.Web;
-using dragonchain_sdk.Status;
-using dragonchain_sdk.Transactions.L1;
-using dragonchain_sdk.Blocks;
-using dragonchain_sdk.Transactions;
-using dragonchain_sdk.Framework.Errors;
-using dragonchain_sdk.Credentials.Manager;
-using dragonchain_sdk.Credentials.Keys;
-using dragonchain_sdk.Interchain;
-using dragonchain_sdk.Interchain.Ethereum;
-using dragonchain_sdk.Interchain.Networks;
-using dragonchain_sdk.Credentials;
+using DragonchainSDK.Contracts;
+using DragonchainSDK.Framework.Web;
+using DragonchainSDK.Status;
+using DragonchainSDK.Transactions.L1;
+using DragonchainSDK.Blocks;
+using DragonchainSDK.Transactions;
+using DragonchainSDK.Framework.Errors;
+using DragonchainSDK.Credentials.Manager;
+using DragonchainSDK.Credentials.Keys;
+using DragonchainSDK.Interchain;
+using DragonchainSDK.Interchain.Ethereum;
+using DragonchainSDK.Interchain.Networks;
+using DragonchainSDK.Credentials;
 
-namespace dragonchain_sdk.tests
+namespace DragonchainSDK.Tests
 {
     [TestFixture]
     public class DragonchainClientUnitTests

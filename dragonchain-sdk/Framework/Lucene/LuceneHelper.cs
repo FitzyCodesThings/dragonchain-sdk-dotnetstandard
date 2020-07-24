@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Web;
 
-namespace dragonchain_sdk.Framework.Lucene
+namespace DragonchainSDK.Framework.Lucene
 {
     public static class LuceneHelper
     {

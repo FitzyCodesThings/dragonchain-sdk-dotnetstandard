@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Newtonsoft.Json;
 
-namespace dragonchain_sdk.Blocks.L4
+namespace DragonchainSDK.Blocks.L4
 {    
     public class L4BlockAtRest
     {

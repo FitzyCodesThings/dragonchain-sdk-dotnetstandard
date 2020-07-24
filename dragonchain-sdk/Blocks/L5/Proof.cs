@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
 
-namespace dragonchain_sdk.Blocks.L5
+namespace DragonchainSDK.Blocks.L5
 {
     public class Proof : Common.Proof
     {        

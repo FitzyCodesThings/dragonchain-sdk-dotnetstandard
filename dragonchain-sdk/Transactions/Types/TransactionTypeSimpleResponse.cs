@@ -1,4 +1,4 @@
-﻿namespace dragonchain_sdk.Transactions.Types
+﻿namespace DragonchainSDK.Transactions.Types
 {
     public class TransactionTypeSimpleResponse
     {

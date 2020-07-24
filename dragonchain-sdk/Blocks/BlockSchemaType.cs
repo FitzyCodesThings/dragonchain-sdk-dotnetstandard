@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using Newtonsoft.Json;
-using dragonchain_sdk.Blocks.Common;
+using DragonchainSDK.Blocks.Common;
 
-namespace dragonchain_sdk.Blocks
+namespace DragonchainSDK.Blocks
 {
     public class BlockSchemaType
     {

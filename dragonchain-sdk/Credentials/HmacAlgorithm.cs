@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace dragonchain_sdk.Credentials
+namespace DragonchainSDK.Credentials
 {
     public enum HmacAlgorithm
     {        

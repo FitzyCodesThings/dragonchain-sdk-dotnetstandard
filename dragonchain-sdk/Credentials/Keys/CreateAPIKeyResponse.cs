@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace dragonchain_sdk.Credentials.Keys
+namespace DragonchainSDK.Credentials.Keys
 {
     public class CreateAPIKeyResponse
     {

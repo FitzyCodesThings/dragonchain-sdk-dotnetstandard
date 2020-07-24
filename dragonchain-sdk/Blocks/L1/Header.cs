@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace dragonchain_sdk.Blocks.L1
+namespace DragonchainSDK.Blocks.L1
 {
     public class Header
     {

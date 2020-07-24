@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using dragonchain_sdk.Interchain.Networks;
+using DragonchainSDK.Interchain.Networks;
 
-namespace dragonchain_sdk.Interchain.Bitcoin
+namespace DragonchainSDK.Interchain.Bitcoin
 {
     public class BitcoinTransactionRequest
     {

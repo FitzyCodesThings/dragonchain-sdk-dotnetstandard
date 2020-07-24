@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
 
-namespace dragonchain_sdk.Transactions.Types
+namespace DragonchainSDK.Transactions.Types
 {
     public class TransactionTypeStructure
     {

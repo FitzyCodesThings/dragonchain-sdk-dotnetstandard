@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace dragonchain_sdk.Contracts
+namespace DragonchainSDK.Contracts
 {
     public class ContractStatus
     {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace dragonchain_sdk.Framework.Web
+namespace DragonchainSDK.Framework.Web
 {
     public class DragonchainApiException : Exception
     {

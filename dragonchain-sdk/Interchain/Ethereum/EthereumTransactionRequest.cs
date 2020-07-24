@@ -1,6 +1,6 @@
-﻿using dragonchain_sdk.Interchain.Networks;
+﻿using DragonchainSDK.Interchain.Networks;
 
-namespace dragonchain_sdk.Interchain.Ethereum
+namespace DragonchainSDK.Interchain.Ethereum
 {
     public class EthereumTransactionRequest
     {

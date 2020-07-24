@@ -1,19 +1,19 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using dragonchain_sdk.Blocks;
-using dragonchain_sdk.Contracts;
-using dragonchain_sdk.Credentials.Keys;
-using dragonchain_sdk.Framework.Web;
-using dragonchain_sdk.Interchain;
-using dragonchain_sdk.Interchain.Bitcoin;
-using dragonchain_sdk.Interchain.Networks;
-using dragonchain_sdk.Status;
-using dragonchain_sdk.Transactions;
-using dragonchain_sdk.Transactions.Bulk;
-using dragonchain_sdk.Transactions.L1;
-using dragonchain_sdk.Transactions.Types;
+using DragonchainSDK.Blocks;
+using DragonchainSDK.Contracts;
+using DragonchainSDK.Credentials.Keys;
+using DragonchainSDK.Framework.Web;
+using DragonchainSDK.Interchain;
+using DragonchainSDK.Interchain.Bitcoin;
+using DragonchainSDK.Interchain.Networks;
+using DragonchainSDK.Status;
+using DragonchainSDK.Transactions;
+using DragonchainSDK.Transactions.Bulk;
+using DragonchainSDK.Transactions.L1;
+using DragonchainSDK.Transactions.Types;
 
-namespace dragonchain_sdk
+namespace DragonchainSDK
 {
     public interface IDragonchainClient
     {

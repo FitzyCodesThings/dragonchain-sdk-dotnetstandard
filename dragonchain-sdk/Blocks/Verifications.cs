@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
 
-namespace dragonchain_sdk.Blocks
+namespace DragonchainSDK.Blocks
 {
     public interface IVerifications { }
 

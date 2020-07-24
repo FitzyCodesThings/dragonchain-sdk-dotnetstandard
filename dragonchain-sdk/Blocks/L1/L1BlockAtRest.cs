@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace dragonchain_sdk.Blocks.L1
+namespace DragonchainSDK.Blocks.L1
 {    
     public class L1BlockAtRest
     {

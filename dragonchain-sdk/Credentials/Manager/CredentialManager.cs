@@ -1,8 +1,8 @@
 ﻿using Microsoft.Extensions.Configuration;
-using dragonchain_sdk.Framework.Errors;
+using DragonchainSDK.Framework.Errors;
 using System;
 
-namespace dragonchain_sdk.Credentials.Manager
+namespace DragonchainSDK.Credentials.Manager
 {
     public class CredentialManager : ICredentialManager
     {

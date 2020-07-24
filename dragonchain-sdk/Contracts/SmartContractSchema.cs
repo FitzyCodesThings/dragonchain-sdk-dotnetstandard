@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
 
-namespace dragonchain_sdk.Contracts
+namespace DragonchainSDK.Contracts
 {
     public class SmartContractSchema
     {

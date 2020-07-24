@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace dragonchain_sdk.Framework.Web
+namespace DragonchainSDK.Framework.Web
 {
     public interface IHttpService
     {

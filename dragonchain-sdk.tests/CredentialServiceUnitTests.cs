@@ -1,7 +1,7 @@
 ﻿using NUnit.Framework;
-using dragonchain_sdk.Credentials;
+using DragonchainSDK.Credentials;
 
-namespace dragonchain_sdk.tests
+namespace DragonchainSDK.Tests
 {
     [TestFixture]
     public class CredentialServiceUnitTests

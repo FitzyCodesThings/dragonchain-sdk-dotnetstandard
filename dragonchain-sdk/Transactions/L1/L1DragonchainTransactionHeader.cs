@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace dragonchain_sdk.Transactions.L1
+namespace DragonchainSDK.Transactions.L1
 {
     public class L1DragonchainTransactionHeader
     {

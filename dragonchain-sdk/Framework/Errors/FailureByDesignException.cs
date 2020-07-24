@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace dragonchain_sdk.Framework.Errors
+namespace DragonchainSDK.Framework.Errors
 {
     public class FailureByDesignException : Exception
     {

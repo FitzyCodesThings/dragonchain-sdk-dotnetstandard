@@ -1,11 +1,11 @@
 ﻿using Microsoft.Extensions.Configuration;
 using NUnit.Framework;
-using dragonchain_sdk.Credentials.Manager;
+using DragonchainSDK.Credentials.Manager;
 using System.Collections.Generic;
 using System;
-using dragonchain_sdk.Framework.Errors;
+using DragonchainSDK.Framework.Errors;
 
-namespace dragonchain_sdk.tests
+namespace DragonchainSDK.Tests
 {
     [TestFixture]
     public class CredentialManagerUnitTests

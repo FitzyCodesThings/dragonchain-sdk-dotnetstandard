@@ -1,4 +1,4 @@
-﻿namespace dragonchain_sdk.Framework.Web
+﻿namespace DragonchainSDK.Framework.Web
 {
     internal class DragonchainApiErrorResponse
     {

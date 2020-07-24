@@ -4,17 +4,17 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 using NUnit.Framework;
-using dragonchain_sdk.Blocks;
-using dragonchain_sdk.Contracts;
-using dragonchain_sdk.Credentials;
-using dragonchain_sdk.Framework.Web;
-using dragonchain_sdk.Status;
-using dragonchain_sdk.Transactions;
-using dragonchain_sdk.Transactions.Bulk;
-using dragonchain_sdk.Transactions.L1;
-using dragonchain_sdk.Transactions.Types;
+using DragonchainSDK.Blocks;
+using DragonchainSDK.Contracts;
+using DragonchainSDK.Credentials;
+using DragonchainSDK.Framework.Web;
+using DragonchainSDK.Status;
+using DragonchainSDK.Transactions;
+using DragonchainSDK.Transactions.Bulk;
+using DragonchainSDK.Transactions.L1;
+using DragonchainSDK.Transactions.Types;
 
-namespace dragonchain_sdk.tests
+namespace DragonchainSDK.Tests
 {
     [TestFixture]
     public class DragonchainClientIntegrationTests

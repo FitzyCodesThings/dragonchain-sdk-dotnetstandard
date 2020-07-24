@@ -1,4 +1,4 @@
-﻿namespace dragonchain_sdk.Interchain.Bitcoin
+﻿namespace DragonchainSDK.Interchain.Bitcoin
 {
     public class BitcoinTransactionOutputs
     {

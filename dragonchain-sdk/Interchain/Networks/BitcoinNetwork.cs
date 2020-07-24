@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace dragonchain_sdk.Interchain.Networks
+namespace DragonchainSDK.Interchain.Networks
 {
     public enum BitcoinNetwork
     {

@@ -1,4 +1,4 @@
-﻿namespace dragonchain_sdk.Status
+﻿namespace DragonchainSDK.Status
 {
     public class L1DragonchainStatusResult
     {

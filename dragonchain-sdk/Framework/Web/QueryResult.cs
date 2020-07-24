@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace dragonchain_sdk.Framework.Web
+namespace DragonchainSDK.Framework.Web
 {
     /// <summary>
     /// Data returned from a query against a chain

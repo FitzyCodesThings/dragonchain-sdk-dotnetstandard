@@ -50,15 +50,15 @@ namespace dragonchain_sdk
                 dragonchainId = credentialManager.GetDragonchainId();
             }
             _credentialService = new CredentialService(dragonchainId, credentialManager: credentialManager);
-            var endpoint = $"https://{dragonchainId}.api.dragonchain.com";
-            _httpService = new HttpService(_credentialService, endpoint, logger);
+            
+            _httpService = new HttpService(_credentialService, logger);
         }
 
         /// <summary>
         /// Create an Instance of a DragonchainClient.
         /// </summary>
         /// <param name="dragonchainId">dragonchainId associated with these credentials</param>
-        /// /// <param name="credentialManager">manager to retrieve Dragonchain credentials from config provider</param>
+        /// <param name="credentialManager">manager to retrieve Dragonchain credentials from config provider</param>
         /// <param name="credentialService">service to retrieve Dragonchain credentials for use in API requests</param>
         /// <param name="httpService">API request service</param>
         /// <param name="logger">Microsoft.Extensions.Logging implementation</param>
@@ -71,9 +71,8 @@ namespace dragonchain_sdk
                 logger.LogDebug("Dragonchain ID not explicitly provided, will search env/disk");
                 dragonchainId = credentialManager.GetDragonchainId();
             }                        
-            _credentialService = credentialService ?? new CredentialService(dragonchainId, credentialManager: credentialManager);
-            var endpoint = $"https://{dragonchainId}.api.dragonchain.com";
-            _httpService = httpService ?? new HttpService(_credentialService, endpoint, logger);
+            _credentialService = credentialService ?? new CredentialService(dragonchainId, credentialManager: credentialManager);            
+            _httpService = httpService ?? new HttpService(_credentialService, logger);
         }
                 
         /// <summary>

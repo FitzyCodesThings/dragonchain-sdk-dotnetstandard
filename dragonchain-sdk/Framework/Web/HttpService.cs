@@ -18,11 +18,11 @@ namespace dragonchain_sdk.Framework.Web
         private HttpClient _httpClient;        
         const string DefaultContentType = "application/json";
 
-        public HttpService(ICredentialService credentialService, string endpoint, ILogger logger = null)
+        public HttpService(ICredentialService credentialService, ILogger logger = null)
         {
             _logger = logger ?? NullLogger.Instance;
             _credentialService = credentialService;            
-            _httpClient = CreateHttpClient(endpoint);
+            _httpClient = CreateHttpClient(_credentialService.GetEndpointURL());
         }
 
         public async Task<ApiResponse<T>> GetAsync<T>(string path)

@@ -19,18 +19,19 @@ namespace dragonchain_sdk.tests
         }
 
         [Test]
-        public void MissingKeysConfigTest()
+        public void MissingCredentialsConfigTest()
         {
-            var credentials = new Dictionary<string, string> { {"AUTH_KEY", "configAuthKey"} };
-            var config = new ConfigurationBuilder()
+            var credentials = new Dictionary<string, string>
+            {
+                {"Dragonchain:DefaultDragonchainId", "fakeDragonchainId"},
+                {"Dragonchain:Credentials:fakeDragonchainId:AUTH_KEY", "configAuthKey"},
+                {"Dragonchain:Credentials:fakeDragonchainId:AUTH_KEY_ID", "configAuthKeyId"}
+            };
+            var config = new ConfigurationBuilder()                
                 .AddInMemoryCollection(credentials)
                 .Build();
-            var credentialManager = new CredentialManager(null);
-            Assert.Throws<FailureByDesignException>(() => credentialManager.GetDragonchainId(), "Config does not contain key 'dragonchainId");
-            Assert.Throws<FailureByDesignException>(() => credentialManager.GetDragonchainCredentials(), "Config does not contain both keys 'AUTH_KEY' and 'AUTH_KEY_ID");
-            credentials.Clear();
-            credentials.Add("AUTH_KEY_ID", "configAuthKeyId");
-            Assert.Throws<FailureByDesignException>(() => credentialManager.GetDragonchainCredentials(), "Config does not contain both keys 'AUTH_KEY' and 'AUTH_KEY_ID");
+            var credentialManager = new CredentialManager(config);
+            Assert.Throws<FailureByDesignException>(() => credentialManager.GetDragonchainCredentials(), "Credential manager failed to throw due to missing credentials");            
         }
 
         [Test]
@@ -38,50 +39,45 @@ namespace dragonchain_sdk.tests
         {
             var credentials = new Dictionary<string, string>
             {
-                {"dragonchainId", "configTestId"},
-                {"AUTH_KEY", "configAuthKey"},
-                {"AUTH_KEY_ID", "configAuthKeyId"},
-                {"fakeDragonchainId:AUTH_KEY", "fakeDragonchainIdConfigAuthKey"},
-                {"fakeDragonchainId:AUTH_KEY_ID", "fakeDragonchainIdConfigAuthKeyId"}                
+                {"Dragonchain:DefaultDragonchainId", "fakeDragonchainId"},
+                {"Dragonchain:Credentials:fakeDragonchainId:AUTH_KEY", "configAuthKey"},
+                {"Dragonchain:Credentials:fakeDragonchainId:AUTH_KEY_ID", "configAuthKeyId"},
+                {"Dragonchain:Credentials:fakeDragonchainId:ENDPOINT_URL", "configEndpointURL"}
             };
             var config = new ConfigurationBuilder()
                 .AddInMemoryCollection(credentials)
                 .Build();
 
             var credentialManager = new CredentialManager(config: config);
-            Assert.AreEqual("configTestId", credentialManager.GetDragonchainId());
+            Assert.AreEqual("fakeDragonchainId", credentialManager.GetDragonchainId());
 
             var dragonchainCredentials = credentialManager.GetDragonchainCredentials();
             Assert.AreEqual("configAuthKeyId", dragonchainCredentials.AuthKeyId);
             Assert.AreEqual("configAuthKey", dragonchainCredentials.AuthKey);
 
             var fakeDragonchainIdDragonchainCredentials = credentialManager.GetDragonchainCredentials("fakeDragonchainId");
-            Assert.AreEqual("fakeDragonchainIdConfigAuthKeyId", fakeDragonchainIdDragonchainCredentials.AuthKeyId);
-            Assert.AreEqual("fakeDragonchainIdConfigAuthKey", fakeDragonchainIdDragonchainCredentials.AuthKey);
+            Assert.AreEqual("configAuthKeyId", fakeDragonchainIdDragonchainCredentials.AuthKeyId);
+            Assert.AreEqual("configAuthKey", fakeDragonchainIdDragonchainCredentials.AuthKey);
         }
 
         [Test]
         public void EnvironmentVariablesConfig_Test()
         {
-            Environment.SetEnvironmentVariable("dragonchainId", "configTestId");
-            Environment.SetEnvironmentVariable("AUTH_KEY", "configAuthKey");
-            Environment.SetEnvironmentVariable("AUTH_KEY_ID", "configAuthKeyId");
-            Environment.SetEnvironmentVariable("fakeDragonchainId:AUTH_KEY", "fakeDragonchainIdConfigAuthKey");
-            Environment.SetEnvironmentVariable("fakeDragonchainId:AUTH_KEY_ID", "fakeDragonchainIdConfigAuthKeyId");
+            Environment.SetEnvironmentVariable("Dragonchain:DefaultDragonchainId", "fakeDragonchainId");
+            Environment.SetEnvironmentVariable("Dragonchain:Credentials:fakeDragonchainId:AUTH_KEY", "configAuthKey");
+            Environment.SetEnvironmentVariable("Dragonchain:Credentials:fakeDragonchainId:AUTH_KEY_ID", "configAuthKeyId");
+            Environment.SetEnvironmentVariable("Dragonchain:Credentials:fakeDragonchainId:ENDPOINT_URL", "configEndpointUrl");
             var config = new ConfigurationBuilder()
                 .AddEnvironmentVariables()
                 .Build();
 
             var credentialManager = new CredentialManager(config: config);
-            Assert.AreEqual("configTestId", credentialManager.GetDragonchainId());
+            Assert.AreEqual("fakeDragonchainId", credentialManager.GetDragonchainId());
 
             var dragonchainCredentials = credentialManager.GetDragonchainCredentials();
             Assert.AreEqual("configAuthKeyId", dragonchainCredentials.AuthKeyId);
             Assert.AreEqual("configAuthKey", dragonchainCredentials.AuthKey);
-
-            var fakeDragonchainIdDragonchainCredentials = credentialManager.GetDragonchainCredentials("fakeDragonchainId");
-            Assert.AreEqual("fakeDragonchainIdConfigAuthKeyId", fakeDragonchainIdDragonchainCredentials.AuthKeyId);
-            Assert.AreEqual("fakeDragonchainIdConfigAuthKey", fakeDragonchainIdDragonchainCredentials.AuthKey);
+            Assert.AreEqual("configEndpointUrl", dragonchainCredentials.EndpointUrl);
         }
 
         [Test]
@@ -97,10 +93,7 @@ namespace dragonchain_sdk.tests
             var dragonchainCredentials = credentialManager.GetDragonchainCredentials();
             Assert.AreEqual("configAuthKeyId", dragonchainCredentials.AuthKeyId);
             Assert.AreEqual("configAuthKey", dragonchainCredentials.AuthKey);
-
-            var fakeDragonchainIdDragonchainCredentials = credentialManager.GetDragonchainCredentials("fakeDragonchainId");
-            Assert.AreEqual("fakeDragonchainIdConfigAuthKeyId", fakeDragonchainIdDragonchainCredentials.AuthKeyId);
-            Assert.AreEqual("fakeDragonchainIdConfigAuthKey", fakeDragonchainIdDragonchainCredentials.AuthKey);
+            Assert.AreEqual("configEndpointUrl", dragonchainCredentials.EndpointUrl);
         }
 
         [Test]
@@ -116,10 +109,7 @@ namespace dragonchain_sdk.tests
             var dragonchainCredentials = credentialManager.GetDragonchainCredentials();
             Assert.AreEqual("configAuthKeyId", dragonchainCredentials.AuthKeyId);
             Assert.AreEqual("configAuthKey", dragonchainCredentials.AuthKey);
-
-            var fakeDragonchainIdDragonchainCredentials = credentialManager.GetDragonchainCredentials("fakeDragonchainId");
-            Assert.AreEqual("fakeDragonchainIdConfigAuthKeyId", fakeDragonchainIdDragonchainCredentials.AuthKeyId);
-            Assert.AreEqual("fakeDragonchainIdConfigAuthKey", fakeDragonchainIdDragonchainCredentials.AuthKey);
+            Assert.AreEqual("configEndpointUrl", dragonchainCredentials.EndpointUrl);
         }
 
         [Test]
@@ -135,10 +125,7 @@ namespace dragonchain_sdk.tests
             var dragonchainCredentials = credentialManager.GetDragonchainCredentials();
             Assert.AreEqual("configAuthKeyId", dragonchainCredentials.AuthKeyId);
             Assert.AreEqual("configAuthKey", dragonchainCredentials.AuthKey);
-
-            var fakeDragonchainIdDragonchainCredentials = credentialManager.GetDragonchainCredentials("fakeDragonchainId");
-            Assert.AreEqual("fakeDragonchainIdConfigAuthKeyId", fakeDragonchainIdDragonchainCredentials.AuthKeyId);
-            Assert.AreEqual("fakeDragonchainIdConfigAuthKey", fakeDragonchainIdDragonchainCredentials.AuthKey);
         }
     }
 }
+

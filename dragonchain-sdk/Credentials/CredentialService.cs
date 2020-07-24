@@ -16,6 +16,8 @@ namespace dragonchain_sdk.Credentials
         private DragonchainCredentials _credentials;
         private HmacAlgorithm _hmacAlgo;
 
+        public string DragonchainId { get; }
+
         /// <summary>
         /// Create an Instance of a CredentialService
         /// </summary>
@@ -25,14 +27,14 @@ namespace dragonchain_sdk.Credentials
         /// <param name="hmacAlgo">hmac algorithm to use</param>
         /// <param name="credentialManager">manager to retrieve Dragonchain credentials from config provider</param>
         /// <param name="logger"></param>
-        public CredentialService(string dragonchainId, string authKey = "", string authKeyId = "", HmacAlgorithm hmacAlgo = HmacAlgorithm.SHA256, ICredentialManager credentialManager = null, ILogger<DragonchainClient> logger = null)
+        public CredentialService(string dragonchainId, string authKey = "", string authKeyId = "", string endpointUrl = "", HmacAlgorithm hmacAlgo = HmacAlgorithm.SHA256, ICredentialManager credentialManager = null, ILogger<DragonchainClient> logger = null)
         {
             _logger = logger ?? new NullLogger<DragonchainClient>();
             DragonchainId = dragonchainId;
             if (!string.IsNullOrWhiteSpace(authKey) && !string.IsNullOrWhiteSpace(authKeyId))
             {
-                _logger.LogDebug("Auth Key/Id provided explicitly, will not search env/disk");
-                _credentials = new DragonchainCredentials{ AuthKey  = authKey, AuthKeyId = authKeyId };
+                _logger.LogDebug("Auth Key/Id and endpoint URL provided explicitly, will not search env/disk");
+                _credentials = new DragonchainCredentials{ AuthKey  = authKey, AuthKeyId = authKeyId, EndpointUrl = endpointUrl };
             }
             else
             {
@@ -42,20 +44,18 @@ namespace dragonchain_sdk.Credentials
                 }
                 catch
                 {  // don't require credentials to be present on construction
-                    _credentials = new DragonchainCredentials { AuthKey = string.Empty, AuthKeyId = string.Empty };
+                    _credentials = new DragonchainCredentials { AuthKey = string.Empty, AuthKeyId = string.Empty, EndpointUrl = string.Empty };
                 }
             }
             _hmacAlgo = hmacAlgo;
         }        
 
-        public string DragonchainId { get; }
-
         /// <summary>
         /// Manually override the credentials for this instance
         /// </summary>                
-        public void OverrideCredentials(string authKeyId, string authKey)
+        public void OverrideCredentials(string authKeyId, string authKey, string endpointUrl)
         {
-            _credentials = new DragonchainCredentials { AuthKey = authKey, AuthKeyId = authKeyId };
+            _credentials = new DragonchainCredentials { AuthKey = authKey, AuthKeyId = authKeyId, EndpointUrl = endpointUrl };
         }
 
         /// <summary>
@@ -88,6 +88,11 @@ namespace dragonchain_sdk.Credentials
             var binaryBody = string.IsNullOrWhiteSpace(body) ? Encoding.UTF8.GetBytes("") : Encoding.UTF8.GetBytes(body);            
             var hashedBase64Content = Convert.ToBase64String(sha256.ComputeHash(binaryBody));
             return String.Join("\n", new string[] { method.ToUpper(), path, dragonchainId, timestamp, contentType, hashedBase64Content });            
+        }
+
+        public string GetEndpointURL()
+        {
+            return _credentials.EndpointUrl;
         }
     }
 }

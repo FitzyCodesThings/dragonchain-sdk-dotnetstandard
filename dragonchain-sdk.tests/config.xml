@@ -1,10 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<configuration>
-  <dragonchainId>configTestId</dragonchainId>
-  <AUTH_KEY>configAuthKey</AUTH_KEY>
-  <AUTH_KEY_ID>configAuthKeyId</AUTH_KEY_ID>
-  <fakeDragonchainId>
-    <AUTH_KEY>fakeDragonchainIdConfigAuthKey</AUTH_KEY>
-    <AUTH_KEY_ID>fakeDragonchainIdConfigAuthKeyId</AUTH_KEY_ID>  
-  </fakeDragonchainId>
-</configuration>
+<Configuration>
+  <Dragonchain>
+    <DefaultDragonchainId>configTestId</DefaultDragonchainId>
+    <Credentials>
+      <configTestId>
+        <AUTH_KEY>configAuthKey</AUTH_KEY>
+        <AUTH_KEY_ID>configAuthKeyId</AUTH_KEY_ID>
+        <ENDPOINT_URL>configEndpointUrl</ENDPOINT_URL>
+      </configTestId>
+    </Credentials>
+  </Dragonchain>
+</Configuration>
+

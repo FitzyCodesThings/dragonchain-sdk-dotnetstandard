@@ -16,6 +16,7 @@ using dragonchain_sdk.Credentials.Keys;
 using dragonchain_sdk.Interchain;
 using dragonchain_sdk.Interchain.Ethereum;
 using dragonchain_sdk.Interchain.Networks;
+using dragonchain_sdk.Credentials;
 
 namespace dragonchain_sdk.tests
 {
@@ -45,8 +46,13 @@ namespace dragonchain_sdk.tests
         public void ConstructClient_Tests()
         {
             _credentialManager.Setup(manager => manager.GetDragonchainId()).Returns("fakeDragonchainId");
+
+            _credentialManager.Setup(manager => manager.GetDragonchainCredentials("fakeDragonchainId")).Returns(
+                new DragonchainCredentials() { AuthKey = "configAuthKey", AuthKeyId = "configAuthKeyId", EndpointUrl = "https://dragonchain.com" }
+            );
+
             IDragonchainClient dragonchainClient;
-            Assert.DoesNotThrow(() => dragonchainClient = new DragonchainClient("fakeDragonchainId"));            
+            Assert.DoesNotThrow(() => dragonchainClient = new DragonchainClient("fakeDragonchainId", _credentialManager.Object));            
             Assert.Throws<FailureByDesignException>(() => dragonchainClient = new DragonchainClient(), "No configuration provider set");
         }                
 

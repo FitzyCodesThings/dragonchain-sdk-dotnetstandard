@@ -23,6 +23,8 @@ using DragonchainSDK.Transactions.Bulk;
 using DragonchainSDK.Transactions.L1;
 using DragonchainSDK.Transactions.Types;
 using System.IO;
+using DragonchainSDK.Framework.Redisearch;
+using System.Transactions;
 
 namespace DragonchainSDK
 {
@@ -252,17 +254,29 @@ namespace DragonchainSDK
         }
 
         /// <summary>
-        /// Query transactions using ElasticSearch query-string syntax For more information on how to use the ElasticSearch query-string syntax 
-        /// checkout the Elastic Search documentation: https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#query-string-syntax
+        /// Query transactions using Redisearch query-string syntax. For more information on how to format redisearch queries,  
+        /// check out the documentation here: https://oss.redislabs.com/redisearch/Query_Syntax/
         /// </summary>
-        /// <param name="luceneQuery">lucene query to use for this query request</param>
-        /// <param name="sort">Sort syntax of 'field:direction</param>
+        /// <param name="transactionType">Transaction type to search</param>
+        /// <param name="redisearchQuery">Redisearch query to use for this query request</param>
+        /// <param name="verbatim">Boolean indicating whether to search for exact matches (no word stems)</param>
         /// <param name="offset">Pagination offset integer of query (default 0)</param>
         /// <param name="limit">Pagination limit integer of query (default 10)</param>
+        /// <param name="sortBy">Indexed field to sort on</param>
+        /// <param name="sortAscending">Boolean indicating whether to sort ascending (false for descenending)</param>
+        /// <param name="idsOnly">Boolean indicating whether to retrieve ONLY the transaction IDs as opposed to the full JSON objects</param>
         /// <returns></returns>
-        public async Task<ApiResponse<QueryResult<L1DragonchainTransactionFull>>> QueryTransactions(string luceneQuery = "", string sort = "", int offset = 0, int limit = 10)
-        {
-            var queryParams = LuceneHelper.GetLuceneParams(luceneQuery, sort, offset, limit);
+        public async Task<ApiResponse<QueryResult<L1DragonchainTransactionFull>>> QueryTransactions(string transactionType, 
+                                                                                                    string redisearchQuery = "*",
+                                                                                                    bool verbatim = true, 
+                                                                                                    int offset = 0, 
+                                                                                                    int limit = 10, 
+                                                                                                    string sortBy = "", 
+                                                                                                    bool sortAscending = true, 
+                                                                                                    bool idsOnly = false)
+        {            
+            // TODO Verify verbatim, sortAscending, and idsOnly function as intended
+            var queryParams = RedisearchHelper.GetRedisearchParams(transactionType, redisearchQuery, verbatim, offset, limit, sortBy, sortAscending, idsOnly);
             return await _httpService.GetAsync<QueryResult<L1DragonchainTransactionFull>>($"/transaction{queryParams}");
         }
 

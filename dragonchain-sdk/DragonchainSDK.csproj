@@ -6,7 +6,7 @@
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageTags>dragonchain sdk</PackageTags>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>2.0.0.5-alpha</Version>
+    <Version>2.0.0.6-alpha</Version>
     <PackageId>dragonchain-sdk-dotnet-v2</PackageId>
     <Description>Unofficial Dragonchain SDK for .Net, Version 2
 

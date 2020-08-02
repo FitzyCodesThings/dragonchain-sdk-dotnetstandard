@@ -42,7 +42,7 @@ namespace DragonchainSDK
         Task<ApiResponse<TransactionTypeListResponse>> ListTransactionTypes();
         Task<ApiResponse<QueryResult<BlockSchemaType>>> QueryBlocks(string luceneQuery = "", string sort = "", int offset = 0, int limit = 10);
         Task<ApiResponse<QueryResult<SmartContractAtRest>>> QuerySmartContracts(string luceneQuery = "", string sort = "", int offset = 0, int limit = 10);
-        Task<ApiResponse<QueryResult<L1DragonchainTransactionFull>>> QueryTransactions(string luceneQuery = "", string sort = "", int offset = 0, int limit = 10);
+        Task<ApiResponse<QueryResult<L1DragonchainTransactionFull>>> QueryTransactions(string transactionType, string redisearchQuery = "*", bool verbatim = true, int offset = 0, int limit = 10, string sortBy = "", bool sortAscending = true, bool idsOnly = false);
         Task<ApiResponse<DragonchainContractResponse>> UpdateSmartContract(string smartContractId, string image = null, string cmd = null, string[] args = null, SmartContractExecutionOrder? executionOrder = null, bool? enabled = null, object environmentVariables = null, object secrets = null, int? scheduleIntervalInSeconds = null, string cronExpression = null, string registryCredentials = null);
         Task<ApiResponse<TransactionTypeSimpleResponse>> UpdateTransactionType(string transactionType, IEnumerable<TransactionTypeCustomIndex> customIndexes);
     }
